@@ -1,0 +1,21 @@
+{
+  "name": "CalendarioAPI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/MucaBordini/CalendarioAPI.git",
+  "author": "MucaBordini <mucabordini@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "sucrase": "^3.16.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  }
+}
