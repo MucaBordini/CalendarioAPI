@@ -14,13 +14,16 @@ class EventController {
 
         const { name, date , startTime, endTime, description} = req.body;
 
+        const active = true;
+
         const eventStore = await Event.create({
             name,
             date,
             startTime,
             endTime,
             description,
-            userId
+            userId,
+            active
         });
 
         const { _id } = eventStore
@@ -77,15 +80,30 @@ class EventController {
                 })
             }
         })
-        /*
-        Event.findOneAndUpdate({ _id: event }, {
-            name: name, 
-            date: date, 
-            startTime: startTime, 
-            endTime: endTime, 
-            description: description
-        });
-        */
+    }
+
+    async setActive(req, res) {
+
+        const { event } = req.body;
+
+        Event.findOne({ _id: event } , function(err, foundEvent) {
+            if (err) {
+                res.status(500).send();
+            } else {
+                if (foundEvent.active === true) {
+                    foundEvent.active = false;
+                } else {
+                    foundEvent.active = true;
+                }
+                foundEvent.save(function(err, updatedEvent) {
+                    if (err) {
+                        res.status(500).send();
+                    } else {
+                        res.send(updatedEvent)
+                    }
+                })
+            }
+        })
     }
 }
 

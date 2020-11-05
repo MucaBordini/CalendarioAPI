@@ -24,6 +24,10 @@ const EventSchema = new Schema({
     userId: {
         type: String,
         required: true
+    },
+    active: {
+        type: Boolean,
+        required: true
     }
 });
 

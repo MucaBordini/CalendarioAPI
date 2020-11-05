@@ -24,6 +24,8 @@ routes.delete('/events', EventController.delete);
 
 routes.put('/events', EventController.edit);
 
+routes.patch('/events', EventController.setActive);
+
 routes.get('/events', EventController.showEvents);
 
 /*routes.get('/authenticated', (req, res) => res.send('Ok'));
